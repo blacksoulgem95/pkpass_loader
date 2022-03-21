@@ -25,6 +25,12 @@ Route::get('/about', function () {
 Route::post('/pass', function(Request $request) {
     $file = $request->file('pass');
 
-    return (new Response($file, 200))
-        ->header('Content-Type', 'application/vnd.apple.pkpass');
+    $headers = [
+        'Content-Type' => 'application/vnd.apple.pkpass'
+    ];
+
+    return response()->download($file->getPathname(), $file->getClientOriginalName(), $headers)
+        ->setContentDisposition('inline', $file->getClientOriginalName(), 'pass.pkpass');
+//        ->header('Content-Type', 'application/vnd.apple.pkpass')
+//        ->header('Content-Disposition', 'inline; filename="'.$file->getBasename().'"');
 })->name('pass.upload');
