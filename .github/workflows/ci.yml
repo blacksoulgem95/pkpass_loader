@@ -1,0 +1,33 @@
+on:
+  push:
+    branches:
+      - main
+name: CI
+jobs:
+  phpunit:
+    runs-on: ubuntu-latest
+    container:
+      image: misterio92/ci-php-node:6.0
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+
+      - name: Install dependencies
+        run: |
+          composer install --no-scripts
+          npm install
+
+      - name: Prepare Laravel Application
+        run: |
+          npm run prod
+
+      - name: Deployment
+        uses: burnett01/rsync-deployments@5.2
+        with:
+          switches: -avzr --delete --exclude=/.git --exclude=/node_modules --exclude=/.well-known --exclude=/storage --exclude=/.env --exclude=/.htaccess --exclude=/public/storage
+          remote_path: ${{ secrets.REMOTE_PATH }}
+          remote_host: ${{ secrets.REMOTE_HOST }}
+          remote_user: ${{ secrets.REMOTE_USER }}
+          remote_key: ${{ secrets.DEPLOY_KEY }}

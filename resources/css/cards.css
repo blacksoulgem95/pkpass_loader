@@ -1,0 +1,8 @@
+.card {
+    @apply bg-white rounded overflow-hidden shadow-lg flex flex-col justify-start items-start
+}
+
+.card .card-content {
+    @apply px-6 py-3;
+    @apply w-full;
+}
