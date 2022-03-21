@@ -14,6 +14,9 @@
                 This app was developed using <code>Laravel</code> and <code>TailwindCSS</code>.<br/>
                 The source code is available here: <x-link-button target="_blank" href="https://github.com/blacksoulgem95/pkpass_loader">GitHub.com</x-link-button>
             </p>
+            <p class="mt-2">
+                <x-ko-fi />
+            </p>
         </div>
     </div>
 </x-app-layout>

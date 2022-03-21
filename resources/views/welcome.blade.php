@@ -26,6 +26,10 @@
                 </button>
 
             </div>
+
+            <div class="mt-4">
+                <x-ko-fi />
+            </div>
         </div>
     </form>
     @push('scripts')
