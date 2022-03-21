@@ -12,7 +12,7 @@
             </p>
             <p class="mt-2 text-base text-gray-500 sm:text-lg dark:text-gray-400">
                 This app was developed using <code>Laravel</code> and <code>TailwindCSS</code>.<br/>
-                The source code is available here: <x-link-button target="_blank" href="">GitHub.com</x-link-button>
+                The source code is available here: <x-link-button target="_blank" href="https://github.com/blacksoulgem95/pkpass_loader">GitHub.com</x-link-button>
             </p>
         </div>
     </div>
